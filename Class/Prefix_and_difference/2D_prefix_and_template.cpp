@@ -23,13 +23,13 @@ il int get(int i, int j)
 */
 il void build()
 {
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= m; j++)
             s[i][j] = get(i - 1, j) + get(i, j - 1) - get(i - 1, j - 1) + a[i][j];
 }
 
 //传递矩形四个角的坐标获取前缀和
-il int sum(int x1, int y1, int x2, int y2) 
+il int sum(int x1, int y1, int x2, int y2)
 {
     return get(x2, y2) - get(x1 - 1, y2) - get(x2, y1 - 1) + get(x1 - 1, y1 - 1);
 }
@@ -37,8 +37,19 @@ il int sum(int x1, int y1, int x2, int y2)
 
 int main()
 {
-    ios::sync_with_stdio(false),cin.tie(0),cout.tie(0);
+    ios::sync_with_stdio(false), cin.tie(0), cout.tie(0);
+    cin >> n >> m;
+    for (int i = 1; i <= n; i++)
+        for (int j = 1; j <= m; j++)
+            cin >> a[i][j];
 
-
+    build();
+    int q; cin >> q;
+    while (q--)
+    {
+        int x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        cout << sum(x1, y1, x2, y2) << endl;
+    }
     return 0;
 }
