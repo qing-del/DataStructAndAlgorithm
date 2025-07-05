@@ -1,4 +1,5 @@
 //测试连接：https://leetcode.cn/problems/largest-1-bordered-square/
+//这个是二维前缀和的练习题
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
